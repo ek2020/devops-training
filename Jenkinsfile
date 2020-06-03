@@ -1,3 +1,4 @@
+#!groovy
 node {
     def app
 

@@ -1,2 +1,2 @@
 # devops-training
-## welcome yes all 
+## welcome all

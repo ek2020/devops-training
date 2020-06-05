@@ -1,11 +1,22 @@
 #!groovy
+properties([pipelineTriggers([githubPush()])])
 node {
     def app
 
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-        checkout scm
-    }
+    stages {
+        /* checkout repo */
+        stage('Checkout SCM') {
+            steps {
+                checkout([
+                 $class: 'GitSCM',
+                 branches: [[name: 'master']],
+                 userRemoteConfigs: [[
+                    url: 'https://github.com/ek2020/devops-training.git',
+                    credentialsId: '',
+                 ]]
+                ])
+            }
+        }
 
     stage('Build image') {
         /* This builds the actual image */
@@ -24,5 +35,11 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
+
+    post {
+       always {
+           deleteDir()
+       }
+   }
 }
     

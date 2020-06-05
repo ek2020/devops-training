@@ -1,6 +1,12 @@
 
 properties([pipelineTriggers([githubPush()])])
-node {
+pipeline {
+
+    agent { 
+        node {
+            label 'ubuntu'
+        }
+    }
     def app
 
     stages {
@@ -40,7 +46,11 @@ node {
        always {
            deleteDir()
        }
-   }
+    }
 }
 }
+
+
+
+
     

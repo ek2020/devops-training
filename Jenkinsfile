@@ -1,6 +1,6 @@
 
 properties([pipelineTriggers([githubPush()])])
-pipeline {
+node {
 
     agent { 
         node {

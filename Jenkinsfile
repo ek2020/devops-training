@@ -4,14 +4,13 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-
         checkout scm
     }
 
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("karthick1998/angularapp")
+        app = docker.build("karthick1998/angular")
     }
 
 

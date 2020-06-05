@@ -3,7 +3,6 @@ FROM node:10.15.2-alpine as build
 LABEL maintainer "karthickelumalai.2020@gmail.com"
 WORKDIR /app
 COPY . .
-RUN npm audit fix
 RUN npm install
 RUN npm run build --prod
 

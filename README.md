@@ -1,2 +1,2 @@
 # devops-training
-## welcome all
+## welcome to jenkins
